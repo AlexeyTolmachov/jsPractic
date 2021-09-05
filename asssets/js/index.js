@@ -46,25 +46,37 @@ const student = {
 
 const digitArr = [];
 function createArr() {
-  for (let i = 1; digitArr.length <= 24; i++) {
+  for (let i = 1; digitArr.length <= 25; i++) {
     digitArr.push(i);
   }
 }
 createArr();
-// const arr = new Array(25).fill(null).map((_, i) => i + 1);
 
-const eventArr = [];
-function evenNumbers() {
-  digitArr.map(function (index) {
-    if (index % 2 === 0) {
-      console.log(digitArr[index]); //event index
+function eventIndex() {
+  digitArr.forEach(function (element, index) {
+    if (index % 2 === 0 && index !== 0) console.log(element);
+  });
+}
+function eventElement() {
+  digitArr.forEach(function (element, index) {
+    if (element % 2 === 0 && element !== 0) console.log(element);
+  });
+}
+function nullElement() {
+  digitArr.forEach(function (element, index) {
+    if (element === 0) {
+      console.log(index);
     }
   });
 }
-evenNumbers();
-function eventIndex(){
-  
-
+const sumNull = [];
+function sumNullElement() {
+  digitArr.forEach(function (element, index) {
+    if (element === 0) {
+      sumNull.push(element);
+    }
+  });
+  console.log(sumNull.length);
 }
 
 class PaperBook {
@@ -88,6 +100,10 @@ class DigitBook {
 let j = 0;
 function otputDigit(n) {
   for (let i = 1; i <= n; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("fizzbuzz");
+      continue;
+    }
     if (i % 3 === 0) {
       console.log("fizz");
       continue;
@@ -96,11 +112,7 @@ function otputDigit(n) {
       console.log("buzz");
       continue;
     }
-    if (i % 3 === 0 && i % 5 === 0) {
-      console.log("fizzbuzz");
-      continue;
-    }
+
     console.log(i);
   }
 }
-
